@@ -1,8 +1,7 @@
 'use client'
 
-import type * as React from 'react'
-
 import { Avatar, Button, Menu, Sidebar } from '@/components/justd/ui'
+import { NoteAddingModal } from '@/features/notes/components/note-adding-modal'
 import {
   IconBrandApple,
   IconChevronLgDown,
@@ -12,25 +11,24 @@ import {
   IconEnvelope,
   IconLogout,
   IconMessage,
-  IconPeople,
-  IconPersonAdd,
   IconSettings,
 } from 'justd-icons'
 import Link from 'next/link'
+import type { ComponentProps } from 'react'
 
-export const AppSidebar = (props: React.ComponentProps<typeof Sidebar>) => {
+export const AppSidebar = (props: ComponentProps<typeof Sidebar>) => {
   return (
     <Sidebar {...props}>
       <Sidebar.Header>
-        <Link
-          className="flex items-center group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2"
-          href="/docs/components/layouts/sidebar"
-        >
-          <IconBrandApple className="size-5" />
-          <strong className="font-medium group-data-[collapsible=dock]:hidden">
-            Apple
-          </strong>
-        </Link>
+        <div className="flex items-center justify-between group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center gap-x-2">
+          <Link href="/" className="flex gap-2">
+            <IconBrandApple className="size-5" />
+            <strong className="font-medium group-data-[collapsible=dock]:hidden">
+              Notes App
+            </strong>
+          </Link>
+          <NoteAddingModal />
+        </div>
       </Sidebar.Header>
       <Sidebar.Content>
         <Sidebar.Section>
@@ -50,15 +48,6 @@ export const AppSidebar = (props: React.ComponentProps<typeof Sidebar>) => {
             Messages
           </Sidebar.Item>
         </Sidebar.Section>
-        <Sidebar.Section collapsible={true} title="Team">
-          <Sidebar.Item icon={IconPeople} href="#">
-            Team Overview
-          </Sidebar.Item>
-          <Sidebar.Item icon={IconPersonAdd} href="#">
-            Add New Member
-          </Sidebar.Item>
-          <Sidebar.Item href="#">Manage Roles</Sidebar.Item>
-        </Sidebar.Section>
       </Sidebar.Content>
       <Sidebar.Footer className="lg:flex lg:flex-row hidden items-center">
         <Menu>
@@ -70,7 +59,7 @@ export const AppSidebar = (props: React.ComponentProps<typeof Sidebar>) => {
           >
             <Avatar size="small" shape="square" src="placeholder.png" />
             <span className="group-data-[collapsible=dock]:hidden flex items-center justify-center">
-              Saul Hudson
+              John Doe
               <IconChevronLgDown className="right-3 size-4 absolute group-pressed:rotate-180 transition-transform" />
             </span>
           </Button>

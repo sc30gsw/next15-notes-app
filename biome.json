@@ -65,6 +65,9 @@
           },
           "correctness": {
             "useImportExtensions": "off"
+          },
+          "suspicious": {
+            "useAwait": "off"
           }
         }
       }
