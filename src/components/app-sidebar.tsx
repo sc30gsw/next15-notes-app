@@ -2,12 +2,16 @@
 
 import type * as React from 'react'
 
-import { Avatar, Button, Heading, Menu, Sidebar } from '@/components/justd/ui'
+import { Avatar, Button, Menu, Sidebar } from '@/components/justd/ui'
 import {
   IconBrandApple,
   IconChevronLgDown,
   IconCirclePerson,
+  IconCreditCard,
+  IconDashboard,
+  IconEnvelope,
   IconLogout,
+  IconMessage,
   IconSettings,
 } from 'justd-icons'
 import Link from 'next/link'
@@ -24,38 +28,30 @@ export const AppSidebar = (props: React.ComponentProps<typeof Sidebar>) => {
             </strong>
           </Link>
           <Button
-            size="small"
+            size="extra-small"
             appearance="plain"
-            className="text-blue-500 hover:bg-transparent hover:brightness-125 transition-all duration-200"
+            className="text-blue-500 hover:bg-transparent hover:opacity-75 transition-all duration-200"
           >
-            Add
+            追加
           </Button>
         </div>
       </Sidebar.Header>
       <Sidebar.Content>
         <Sidebar.Section>
-          <Sidebar.Item isCurrent={true} href="#">
+          <Sidebar.Item isCurrent={true} icon={IconDashboard} href="#">
             Overview
           </Sidebar.Item>
-          <Sidebar.Item>
-            <article>
-              <div className="flex justify-between items-center">
-                <Heading level={4}>タイトル</Heading>
-                <Button
-                  size="small"
-                  appearance="plain"
-                  className="text-red-500 hover:bg-transparent hover:brightness-125 transition-all duration-200"
-                >
-                  Delete
-                </Button>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm">ノート内容です</p>
-                <p className="text-xs text-slate-500">
-                  Updated at <strong>yyyy/mm/dd</strong>
-                </p>
-              </div>
-            </article>
+          <Sidebar.Item icon={IconSettings} href="#">
+            Settings
+          </Sidebar.Item>
+          <Sidebar.Item icon={IconCreditCard} href="#">
+            Billing
+          </Sidebar.Item>
+          <Sidebar.Item icon={IconEnvelope} href="#" badge="49.67K">
+            Newsletter
+          </Sidebar.Item>
+          <Sidebar.Item icon={IconMessage} href="#" badge={35}>
+            Messages
           </Sidebar.Item>
         </Sidebar.Section>
       </Sidebar.Content>
