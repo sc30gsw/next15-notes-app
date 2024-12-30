@@ -1,4 +1,5 @@
-import { Button, Heading } from '@/components/justd/ui'
+import { Heading } from '@/components/justd/ui'
+import { NoteButton } from '@/features/notes/components/note-button'
 import type { client } from '@/libs/rpc'
 import { format } from 'date-fns'
 import type { InferResponseType } from 'hono'
@@ -14,13 +15,7 @@ export const NoteItem = ({ note }: NoteItemProps) => {
     <article>
       <div className="flex justify-between items-center">
         <Heading level={4}>{note.title}</Heading>
-        <Button
-          size="small"
-          appearance="plain"
-          className="text-red-500 hover:bg-transparent hover:brightness-125 transition-all duration-200"
-        >
-          Delete
-        </Button>
+        <NoteButton id={note.id} />
       </div>
       <div className="space-y-2">
         <p className="text-sm">{note.content}</p>
