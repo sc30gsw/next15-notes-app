@@ -1,8 +1,7 @@
 'use client'
 
-import type * as React from 'react'
-
 import { Avatar, Button, Menu, Sidebar } from '@/components/justd/ui'
+import { NoteAddingModal } from '@/features/notes/components/note-adding-modal'
 import {
   IconBrandApple,
   IconChevronLgDown,
@@ -15,8 +14,9 @@ import {
   IconSettings,
 } from 'justd-icons'
 import Link from 'next/link'
+import type { ComponentProps } from 'react'
 
-export const AppSidebar = (props: React.ComponentProps<typeof Sidebar>) => {
+export const AppSidebar = (props: ComponentProps<typeof Sidebar>) => {
   return (
     <Sidebar {...props}>
       <Sidebar.Header>
@@ -27,13 +27,7 @@ export const AppSidebar = (props: React.ComponentProps<typeof Sidebar>) => {
               Notes App
             </strong>
           </Link>
-          <Button
-            size="extra-small"
-            appearance="plain"
-            className="text-blue-500 hover:bg-transparent hover:opacity-75 transition-all duration-200"
-          >
-            追加
-          </Button>
+          <NoteAddingModal />
         </div>
       </Sidebar.Header>
       <Sidebar.Content>
