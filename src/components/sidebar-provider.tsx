@@ -1,10 +1,9 @@
 import { AppSidebar } from '@/components/app-sidebar'
-import { Avatar, Button, Menu, Separator, Sidebar } from '@/components/justd/ui'
+import { Avatar, Menu, Separator, Sidebar } from '@/components/justd/ui'
 import {
   IconChevronLgDown,
   IconCirclePerson,
   IconLogout,
-  IconSearch,
   IconSettings,
   IconShield,
 } from 'justd-icons'
@@ -24,13 +23,6 @@ export const SidebarProvider = ({ children }: SidebarProviderProps) => {
           </span>
 
           <div className="flex sm:hidden items-center gap-x-2">
-            <Button
-              appearance="plain"
-              aria-label="Search..."
-              size="square-petite"
-            >
-              <IconSearch />
-            </Button>
             <Menu>
               <Menu.Trigger
                 aria-label="Profile"
