@@ -1,5 +1,7 @@
+import { NoteList } from '@/features/notes/components/note-list'
+
 const Home = () => {
-  return <div>Hello World!</div>
+  return <NoteList />
 }
 
 export default Home
