@@ -24,8 +24,10 @@ export const metadata: Metadata = {
 
 const RootLayout = async ({
   children,
+  modal,
 }: Readonly<{
   children: ReactNode
+  modal: ReactNode
 }>) => {
   return (
     <html lang="ja">
@@ -35,6 +37,7 @@ const RootLayout = async ({
         <Providers>
           <Toast />
           {children}
+          {modal}
         </Providers>
       </body>
     </html>
