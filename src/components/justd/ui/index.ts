@@ -16,6 +16,7 @@ export * from './heading'
 export * from './keyboard'
 export * from './loader'
 export * from './menu'
+export * from './modal';
 export * from './popover';
 export * from './primitive'
 export * from './primitive'
