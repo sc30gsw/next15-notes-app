@@ -1,6 +1,6 @@
 'use server'
 
-import { NOTES_CACHE_KEY, NOTE_DETAIL_CACHE_KEY } from '@/constants'
+import { NOTES_CACHE_KEY } from '@/constants'
 import { noteFormSchema } from '@/features/notes/types/note-schema'
 import { db } from '@/libs/db/drizzle'
 import { notes } from '@/libs/db/schema'
@@ -23,7 +23,6 @@ export const editNote = async (_: unknown, formData: FormData) => {
     })
     .where(eq(notes.id, formData.get('noteId') as string))
 
-  revalidateTag(NOTE_DETAIL_CACHE_KEY(formData.get('noteId') as string))
   revalidateTag(NOTES_CACHE_KEY)
 
   return submission.reply()
