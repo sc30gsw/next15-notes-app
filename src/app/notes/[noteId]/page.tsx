@@ -1,5 +1,3 @@
-'use cache'
-
 import { NOTE_DETAIL_CACHE_KEY } from '@/constants'
 import { NoteDetailModal } from '@/features/notes/components/note-detail-modal'
 import { fetcher } from '@/libs/fethcer'
@@ -11,6 +9,8 @@ type ReqType = InferRequestType<(typeof client.api.notes)[':noteId']['$get']>
 type ResType = InferResponseType<(typeof client.api.notes)[':noteId']['$get']>
 
 const getNote = async (param: ReqType['param']) => {
+  'use cache'
+
   const url = client.api.notes[':noteId'].$url({
     param: { noteId: param.noteId },
   })

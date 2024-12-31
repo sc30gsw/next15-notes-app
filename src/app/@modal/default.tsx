@@ -1,4 +1,6 @@
-const Default = () => {
+'use cache'
+
+const Default = async () => {
   return null
 }
 
