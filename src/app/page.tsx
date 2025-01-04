@@ -1,5 +1,3 @@
-'use cache'
-
 import { NOTES_CACHE_KEY } from '@/constants'
 import { NoteItem } from '@/features/notes/components/note-item'
 import { fetcher } from '@/libs/fethcer'
@@ -10,7 +8,10 @@ import { unstable_cacheTag } from 'next/cache'
 type ResType = InferResponseType<typeof client.api.notes.$get>
 
 const getNotes = async () => {
+  'use cache'
+
   const url = client.api.notes.$url()
+
   const res = await fetcher<ResType>(url)
 
   unstable_cacheTag(NOTES_CACHE_KEY)
