@@ -1,7 +1,7 @@
 import { Card } from '@/components/justd/ui'
 import { unstable_cacheLife } from 'next/cache'
 import Image from 'next/image'
-import { type ReactNode, Suspense, use } from 'react'
+import { type ReactNode, Suspense } from 'react'
 
 const getName = async () => {
   'use cache'
@@ -27,7 +27,7 @@ const getCount = async () => {
 
 const FooPage = () => {
   const name = getName()
-  const count = use(getCount())
+  const count = getCount()
 
   return (
     <div>
